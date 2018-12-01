@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/userInfo")
 public class UserInfoController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class UserInfoController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserInfoController.class);
 
-    @PostMapping("/create")
+    @PostMapping("/createUser")
     public CommonResponseVO createUser(@Validated @RequestBody UserInfoCO userInfoCO) {
         return userInfoServices.createNewUser(userInfoCO);
     }
