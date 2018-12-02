@@ -1,5 +1,7 @@
 package com.example.IskconErpAPI.vo;
 
+import java.util.List;
+
 /**
  * Created by sahil on 1/12/18.
  */
@@ -7,8 +9,7 @@ public class CountryVO {
 
     private Long id;
     private String name;
-
-
+    private List<StateVO> stateVOS;
 
     public Long getId() {
 
@@ -27,4 +28,11 @@ public class CountryVO {
         this.name = name;
     }
 
+    public List<StateVO> getStateVOS() {
+        return stateVOS;
+    }
+
+    public void setStateVOS(List<StateVO> stateVOS) {
+        this.stateVOS = stateVOS;
+    }
 }
