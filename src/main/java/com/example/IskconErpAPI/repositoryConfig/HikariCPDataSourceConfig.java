@@ -29,6 +29,7 @@ public class HikariCPDataSourceConfig {
         config.setJdbcUrl(env.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
         config.setUsername(env.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
         config.setPassword(env.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
+
         config.setConnectionTestQuery("SELECT 1");
         config.setConnectionInitSql("SELECT 1");
         config.setConnectionTimeout(5000);
