@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by sahil on 2/12/18.
  */
-@CrossOrigin
+@CrossOrigin()
 @RestController
 @RequestMapping("/address")
 public class AddressController {

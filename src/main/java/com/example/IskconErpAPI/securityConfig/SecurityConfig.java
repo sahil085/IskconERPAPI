@@ -18,11 +18,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -120,6 +124,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // disabling the CSRF - Cross Site Request Forgery
                 .csrf().disable();
     }
-
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("https://iskcon-erp.herokuapp.com","http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
 }
